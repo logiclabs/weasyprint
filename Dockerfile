@@ -1,9 +1,9 @@
-FROM python:3.7-alpine3.8
+FROM python:alpine
 
 RUN apk upgrade --no-cache && apk add --no-cache uwsgi uwsgi-python3
 
 # Fix missing "getrandom"
-RUN apk add --no-cache musl\>1.1.20 --repository http://dl-cdn.alpinelinux.org/alpine/edge/main
+RUN apk add --no-cache musl\>1.2.4-r1 --repository http://dl-cdn.alpinelinux.org/alpine/edge/main
 
 RUN \
   echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories && \
